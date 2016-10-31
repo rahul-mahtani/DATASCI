@@ -6,6 +6,7 @@ import pytz
 from bs4 import BeautifulSoup
 from datetime import datetime
 from pandas.io.data import DataReader
+import matplotlib.pyplot as plt
 
 # list of S&P 500 companies for ticker reference
 SITE = 'http://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
@@ -56,3 +57,7 @@ for sector, ticker in sector_tickers.iteritems():
 print 'finished downloading data'
 
 sector_ohlc['information_technology']
+aapl_series = sector_ohlc['information_technology']['close']['AAPL']
+aapl_series.plot()
+plt.show()
+
